@@ -5,10 +5,20 @@ export class Person {
 
     constructor(
         public name: string,
-        private address: string
+        private address: string = 'No address'
     ) {}
 }
 
-const iroman = new Person('Iroman', 'New york');
+export class Hero extends Person {
+    constructor(
+        public alterEgo: string,
+        public age: number,
+        public realName: string,
+    ) {
+        super( realName, 'New York')
+    }
+}
+
+const iroman = new Hero('Iroman', 45, 'tony');
 
 console.log(iroman)
