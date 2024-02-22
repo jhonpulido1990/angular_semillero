@@ -4,7 +4,8 @@ import './style.css'
 /* import './topics/3-funtion'; */
 /* import './topics/4-homework-types'; */
 /* import './topics/5-basic-destructuring'; */
-import './topics/6-function-destructuring';
+/* import './topics/6-function-destructuring'; */
+import './topics/7-import-export';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   hola mundo
