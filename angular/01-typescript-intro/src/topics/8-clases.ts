@@ -4,21 +4,24 @@ export class Person {
     // private address: string;
 
     constructor(
-        public name: string,
+        public firstName: string,
+        public lastName: string,
         private address: string = 'No address'
     ) {}
 }
 
-export class Hero extends Person {
+export class Hero {
     constructor(
         public alterEgo: string,
         public age: number,
         public realName: string,
+        public person: Person,
     ) {
-        super( realName, 'New York')
     }
 }
 
-const iroman = new Hero('Iroman', 45, 'tony');
+const tony = new Person('Tony Start', 'Start', 'New York')
+
+const iroman = new Hero('Iroman', 45, 'tony', tony);
 
 console.log(iroman)
