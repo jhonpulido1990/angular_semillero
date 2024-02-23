@@ -9,4 +9,12 @@ export class HeroComponent {
   nombre: string = 'spiderman';
   edad: number = 32;
 
+  get capitalizedName(): string {
+    return this.nombre.toLocaleUpperCase()
+  }
+
+  getHeroDescription():string {
+    return `${this.nombre} - ${this.edad}`
+  }
+
 }
