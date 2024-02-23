@@ -7,7 +7,8 @@ import './style.css'
 /* import './topics/6-function-destructuring'; */
 /* import './topics/7-import-export'; */
 /* import './topics/8-clases'; */
-import './topics/9-generics';
+/* import './topics/9-generics'; */
+import './topics/10-decorators';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   hola mundo
