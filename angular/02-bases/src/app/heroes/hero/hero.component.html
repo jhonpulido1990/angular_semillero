@@ -14,5 +14,5 @@
 </dl>
 
 
-<button class="btn btn-primary mx-2" (click)="changeHero()">cambiar nombre</button>
-<button class="btn btn-primary" (click)="changeAge()">cambiar edad</button>
+<button *ngIf="nombre !== 'Iroman'" class="btn btn-primary mx-2" (click)="changeHero()">cambiar nombre</button>
+<button *ngIf="edad !== 25" class="btn btn-primary" (click)="changeAge()">cambiar edad</button>
