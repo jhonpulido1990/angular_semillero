@@ -4,5 +4,6 @@
   <li class="list-group-item">{{i + 1}}. {{ person.name }}, Power: {{ person.power }} <span>Es el primero: {{ isFirst
       }}</span> :
     <span>Es el ultimo: {{ isLast }}</span> : <span>es par: {{ isEven }}</span>
+    <button class="btn btn-danger" (click)="onDeleteCharacter(i)">X</button>
   </li>
 </ul>

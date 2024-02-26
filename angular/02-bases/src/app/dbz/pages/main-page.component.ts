@@ -6,7 +6,7 @@ import { Character } from '../interfaces/character.interface';
   templateUrl: './main-page.component.html',
 })
 export class MainPageComponent {
-  public character: Character[] = [
+  public characters: Character[] = [
     {
       name: 'Krillin',
       power: 1000,
@@ -22,6 +22,10 @@ export class MainPageComponent {
   ];
 
   onNewCharacter(character: Character): void {
-    console.log('recibi un: ', character);
+    this.characters.push(character);
+  }
+
+  onDeleteCharacter(index: number): void {
+    this.characters.splice(index, 1);
   }
 }
