@@ -1,6 +1,6 @@
 <div class="card mb-2 text-center bg-dark text-center">
   <!-- Todo: Crear imagen -->
-  <app-lazy-Image></app-lazy-Image>
+  <app-lazy-Image [url]="gif.images.downsized_medium.url" [alt]="gif.title || 'No title'" ></app-lazy-Image>
   <div class="card-body text-white">
     <p class="card-text">
       {{ gif.title || 'No title' }}
