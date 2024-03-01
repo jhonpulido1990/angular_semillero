@@ -2,7 +2,10 @@
 <hr>
 <div class="row">
   <div class="col">
-    <app-searchBox placeholder="Este es el nuevo placeholder"></app-searchBox>
+    <app-searchBox
+      (onValue)="searchByCapital($event)"
+      placeholder="Este es el nuevo placeholder"
+      ></app-searchBox>
   </div>
 </div>
 
