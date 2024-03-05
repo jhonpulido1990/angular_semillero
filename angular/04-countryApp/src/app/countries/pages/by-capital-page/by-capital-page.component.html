@@ -4,7 +4,7 @@
   <div class="col">
     <app-searchBox
       (onValue)="searchByCapital($event)"
-      placeholder="Este es el nuevo placeholder"
+      placeholder="Busqueda por capital"
       ></app-searchBox>
   </div>
 </div>
@@ -12,10 +12,6 @@
 <div class="row">
   <div class="col">
     <hr>
-    <ul>
-      <li *ngFor="let country of countries">
-        {{ country.capital }} - {{ country.population }}
-      </li>
-    </ul>
+    <app-country-table [countries]="countries"></app-country-table>
   </div>
 </div>

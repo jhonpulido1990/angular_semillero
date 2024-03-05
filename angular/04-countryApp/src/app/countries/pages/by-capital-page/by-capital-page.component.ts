@@ -5,17 +5,15 @@ import { Country } from '../../interfaces/country.interface';
 @Component({
   selector: 'app-by-capital-page',
   templateUrl: './by-capital-page.component.html',
-  styles: ``
+  styles: ``,
 })
 export class ByCapitalPageComponent {
+  public countries: Country[] = [];
 
-  public countries: Country[] = []
+  constructor(private countryService: CountriesService) {}
 
-  constructor( private countryService: CountriesService ){}
-
-  searchByCapital( term: string): void {
-    this.countryService.searchCapital(term)
-    .subscribe( countries => {
+  searchByCapital(term: string): void {
+    this.countryService.searchCapital(term).subscribe((countries) => {
       this.countries = countries;
     });
   }
