@@ -12,7 +12,7 @@
 <div class="row">
   <div class="col">
     <hr>
-    <app-loadingSpinner></app-loadingSpinner>
+    <app-loadingSpinner *ngIf="isLoading"></app-loadingSpinner>
     <app-country-table [countries]="countries"></app-country-table>
   </div>
 </div>
