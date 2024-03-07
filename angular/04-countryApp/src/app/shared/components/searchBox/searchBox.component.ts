@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { Subject, Subscription, debounceTime } from 'rxjs';
+import { CountriesService } from '../../../countries/services/countries.service';
 
 @Component({
   selector: 'app-searchBox',
@@ -19,6 +20,9 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
 
   @Output()
   public onDebounce: EventEmitter<string> = new EventEmitter();
+
+  @Input()
+  public InitialValue: string = '';
 
   @ViewChild('txtSearchInput')
   public TagInput!: ElementRef<HTMLInputElement>;
