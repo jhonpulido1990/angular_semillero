@@ -1,11 +1,12 @@
 <h2>Busquedas</h2>
 <hr>
 <div class="row">
-  <div class="col">
-    <app-searchBox
-      (onDebounce)="searchByRegion($event)"
-      placeholder="Busqueda por continente"
-      ></app-searchBox>
+  <div class="col text-center">
+    <button class="btn mx-2" *ngFor="let region of regions" type="button" (click)="searchByRegion(region)"
+      [ngClass]="{'btn-outline-primary': selectRegion === region}">
+      {{ region }}
+    </button>
+    <!-- <app-searchBox (onDebounce)="searchByRegion($event)" placeholder="Busqueda por continente"></app-searchBox> -->
   </div>
 </div>
 
