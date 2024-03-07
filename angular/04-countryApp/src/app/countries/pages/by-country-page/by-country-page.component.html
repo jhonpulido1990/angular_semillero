@@ -4,6 +4,7 @@
   <div class="col">
     <app-searchBox
       (onDebounce)="searchByCountry($event)"
+      [InitialValue]="initialValue"
       placeholder="Busqueda por pais"
       ></app-searchBox>
   </div>
