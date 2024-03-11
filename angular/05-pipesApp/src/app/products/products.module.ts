@@ -9,6 +9,7 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { OrderComponent } from './pages/order/order.component';
 import { ToogleCasePipe } from './pipes/toggle-case.pipe';
 import { CanFlyPipe } from './pipes/can-flay.pipe';
+import { ShortByPipe } from './pipes/ShortBy.pipe';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { CanFlyPipe } from './pipes/can-flay.pipe';
     OrderComponent,
     ToogleCasePipe,
     UncommonPageComponent,
+    ShortByPipe
   ],
   imports: [
     CommonModule,
