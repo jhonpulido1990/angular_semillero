@@ -1,15 +1,15 @@
 <h2>Reactivos: <small> Dinámicos </small></h2>
 <hr>
 
-<form [formGroup]="myForm" autocomplete="off" (ngSubmit)="onSubmit()" >
+<form [formGroup]="myForm" autocomplete="off" (ngSubmit)="onSubmit()">
 
   <!-- Nombre -->
   <div class="mb-3 row">
     <label class="col-sm-3 col-form-label">Nombre</label>
     <div class="col-sm-9">
-      <input class="form-control" placeholder="Nombre de la persona">
-      <span class="form-text text-danger">
-        error message
+      <input class="form-control" placeholder="Nombre de la persona" formControlName="name">
+      <span *ngIf="isValidField('name')" class="form-text text-danger">
+        {{ getFieldError('name') }}
       </span>
     </div>
   </div>
@@ -20,7 +20,7 @@
     <div class="col-sm-9">
 
       <div class="input-group">
-        <input class="form-control" formControlName="name" placeholder="Agregar favorito">
+        <input class="form-control" placeholder="Agregar favorito">
 
 
         <button class="btn btn-outline-primary" type="button">
@@ -45,7 +45,7 @@
             Eliminar
           </button>
         </div>
-        <span class="form-text text-danger">
+        <span *ngIf="isValidFieldInArray(favoriteGames, i)" class="form-text text-danger">
           Este campo es requerido
         </span>
 
