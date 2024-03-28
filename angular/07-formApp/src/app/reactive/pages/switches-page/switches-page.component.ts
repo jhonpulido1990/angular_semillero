@@ -1,49 +1,66 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-switches-page',
   templateUrl: './switches-page.component.html',
-  styles: ``
+  styles: ``,
 })
-export class SwitchesPageComponent {
-
+export class SwitchesPageComponent implements OnInit {
   public myForm: FormGroup = this.fb.group({
     gender: ['M', Validators.required],
     wantNotifications: [true, Validators.required],
     termsAndConditions: [false, Validators.requiredTrue],
-  })
+  });
 
-  constructor( private fb: FormBuilder ) {}
+  public person = {
+    gender: 'F',
+    wantNotifications: false,
+  };
 
-  isValidField( field: string ): boolean | null {
-    return this.myForm.controls[field].errors
-      && this.myForm.controls[field].touched
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.myForm.reset(this.person);
   }
 
-  getFieldError( field: string ): string | null {
-    if ( !this.myForm.controls[field] ) return null;
+  isValidField(field: string): boolean | null {
+    return (
+      this.myForm.controls[field].errors && this.myForm.controls[field].touched
+    );
+  }
+
+  getFieldError(field: string): string | null {
+    if (!this.myForm.controls[field]) return null;
 
     const errors = this.myForm.controls[field].errors || {};
 
-    for(const key of Object.keys(errors)) {
-      switch( key ) {
+    for (const key of Object.keys(errors)) {
+      switch (key) {
         case 'required':
-        return 'Este campo es requerido';
-
-        case 'requiredTrue':
-        return 'Debe de aceptar las condiciones de uso'
+          return 'Debe de aceptar las condiciones de uso';
       }
     }
     return null;
   }
 
   onSave() {
-    if ( this.myForm.invalid ) {
+    if (this.myForm.invalid) {
       this.myForm.markAllAsTouched();
       return;
     }
-    console.log( this.myForm.value );
-    this.myForm.reset({ gender: 'M', wantNotifications: true, termsAndConditions: false })
+    /* console.log(this.myForm.value);
+    this.myForm.reset({
+      gender: 'M',
+      wantNotifications: true,
+      termsAndConditions: false,
+    }); */
+    const { termsAndConditions, ...newperson } = this.myForm.value
+    this.person = newperson;
   }
 }
