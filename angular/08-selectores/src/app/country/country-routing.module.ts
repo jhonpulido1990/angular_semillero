@@ -11,7 +11,7 @@ const routes: Routes = [
         component: SelectorPageComponent,
       },
       {
-        path: '',
+        path: '**',
         redirectTo: 'selector'
       }
     ],
