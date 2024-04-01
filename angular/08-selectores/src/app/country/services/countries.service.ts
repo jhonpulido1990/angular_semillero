@@ -31,4 +31,16 @@ export class CountriesService {
       }) ) )
     )
   }
+
+  getCountryByAlphaCode( alphaCode: string ): Observable<SmallCountry> {
+    const url = `${ this.baseUrl }/alpha/${ alphaCode }?fields=cca3,name,borders`
+    return this.http.get<Country>(url)
+    .pipe(
+      map( countries => ({
+        name: countries.name.common,
+        cca3: countries.cca3,
+        borders: countries.borders ?? []
+      }) )
+    )
+  }
 }
