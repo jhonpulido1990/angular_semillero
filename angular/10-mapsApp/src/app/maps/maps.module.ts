@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+(mapboxgl as any).accessToken = 'pk.eyJ1IjoiamhvbnB1bGkiLCJhIjoiY2x1aGYwYTlhMnB1MDJtbjQ0eThxaGgwbyJ9.YLDa0xgrSupMdgnxvX8NRQ';
+
 import { FullScreenPageComponent } from './pages/full-screen-page/full-screen-page.component';
 import { MapsLayoutComponent } from './layout/maps-layout/maps-layout.component';
 import { MapsRoutingModule } from './maps-routing.module';
