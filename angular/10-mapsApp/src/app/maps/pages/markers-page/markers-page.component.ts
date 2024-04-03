@@ -68,4 +68,11 @@ export class MarkersPageComponent implements AfterViewInit {
     this.listMarkers[index].marker.remove();
     this.listMarkers.splice( index, 1)
   }
+
+  flyTo( marker: Marker ) {
+    this.map?.flyTo({
+      zoom: 14,
+      center: marker.getLngLat()
+    })
+  }
 }
