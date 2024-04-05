@@ -13,7 +13,6 @@ export class ProductPageComponent {
 
   public myForm: FormGroup = this.fb.group({
     name: ['', [ Validators.required, Validators.minLength(6), Validators.email ] ],
-    color: '',
   })
 
   changeColor() {
