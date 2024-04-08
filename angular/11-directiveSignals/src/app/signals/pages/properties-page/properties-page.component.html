@@ -6,23 +6,27 @@
     <input type="textbox"
       #txtEmail
       class="form-control mb-2"
-      (input)="onFieldUpdate('email', txtEmail.value)">
+      (input)="onFieldUpdate('email', txtEmail.value)"
+      [value]="user().email">
 
       <input type="textbox"
       #txtFirstName
       class="form-control mb-2"
-      (input)="onFieldUpdate('first_name', txtFirstName.value)">
+      (input)="onFieldUpdate('first_name', txtFirstName.value)"
+       [value]="user().first_name">
 
       <input type="textbox"
       #txtLastName
       class="form-control mb-2"
-      (input)="onFieldUpdate('last_name', txtLastName.value)">
+      (input)="onFieldUpdate('last_name', txtLastName.value)"
+       [value]="user().last_name">
 
   </div>
   <div class="col-6">
     <!-- data del usuario -->
     <pre>
-      
+      {{ user() | json }}
     </pre>
+    {{ fullname() }}
   </div>
 </div>
