@@ -7,13 +7,13 @@
     &nbsp;
     <button (click)="loadUser( userId() + 1 )" class="btn btn-primary">Siguiente</button>
   </div>
-  <div class="col-8" *ngIf="currentUser() !== undefined">
+  <div class="col-8" *ngIf="currentUser()">
     <h3>Usuario</h3>
-    <p>correo: {{ currentUser()!.email }}</p>
-    <p>nombre: {{ currentUser()!.first_name }}</p>
-    <img [src]="currentUser()!.avatar" [alt]="currentUser()!.first_name" class="rounded">
+    <p>correo: {{ currentUser()?.email }}</p>
+    <p>nombre: {{ fullName() }}</p>
+    <img [src]="currentUser()?.avatar" [alt]="currentUser()?.first_name" class="rounded">
   </div>
-  <div class="col-8 text-danger">
+  <div class="col-8 text-danger" *ngIf="!userWasFound()">
     <h3>Usuario no encontrado</h3>
 </div>
 </div>
