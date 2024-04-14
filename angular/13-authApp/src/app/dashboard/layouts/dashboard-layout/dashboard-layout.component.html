@@ -3,5 +3,10 @@
 
 <h3>User</h3>
 <pre>
-{{ user | json }}
+{{ user() | json }}
 </pre>
+<br>
+<span routerLink="/auth/login">Ir a layout</span>
+
+<br>
+<button (click)="onLogout()" >Cerrar seccion</button>

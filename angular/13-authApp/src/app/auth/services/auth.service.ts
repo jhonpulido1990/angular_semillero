@@ -43,10 +43,23 @@ export class AuthService {
     );
   }
 
+  register(email: string, name: string, password: string): Observable<boolean> {
+    const baseUrl = `${this.baseUrl}/auth/register`;
+    const body = { email, name, password };
+    return this.http.post<LoginResponse>(baseUrl, body).pipe(
+      map(({ user, token }) => this.setAuthentication(user, token)),
+      // Todo: errores
+      catchError((err) => throwError(() => err.error.message))
+    );
+  }
+
   checkAuthStatus(): Observable<boolean> {
     const url = `${this.baseUrl}/auth/check-token`;
     const token = localStorage.getItem('token');
-    if (!token) return of(false);
+    if (!token) {
+      this.logout()
+      return of(false);
+    }
 
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
@@ -59,5 +72,11 @@ export class AuthService {
         return of(false);
       })
     );
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this._currentUser.set(null);
+    this._authStatus.set(AuthStatus.notAuthenticated);
   }
 }
