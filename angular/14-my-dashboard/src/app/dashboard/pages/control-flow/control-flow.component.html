@@ -16,15 +16,36 @@
   <!-- ngIf @switch -->
   <div class="bg-white rounded shadow p-10">
     @switch (grade()) {
-      @case ('A') {
-        <p>Arriba de 90</p>
-      }
-      @case ('B') {
-        <p>Arriba de 80</p>
-      }
-    @default {
-        <p>reprobado</p>
-      }
+    @case ('A') {
+    <p>Arriba de 90</p>
     }
+    @case ('B') {
+    <p>Arriba de 80</p>
+    }
+    @default {
+    <p>reprobado</p>
+    }
+    }
+  </div>
+  <!-- @For -->
+  <div class="bg-white rounded shadow p-10">
+
+    <ul>
+      @for (framewords of frameword(); track $index) {
+      <li>{{ framewords }}</li>
+      }
+    </ul>
+
+  </div>
+  <div class="bg-white rounded shadow p-10">
+
+    <ul>
+      @for (framewords of frameword2(); track $index) {
+      <li>{{ framewords }}</li>
+      } @empty {
+      <li>No hay framework agregados</li>
+      }
+    </ul>
+
   </div>
 </section>

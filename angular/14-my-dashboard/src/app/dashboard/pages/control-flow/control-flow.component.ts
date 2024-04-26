@@ -13,6 +13,8 @@ export default class ControlFlowComponent {
 
   public showContent = signal(false);
   public grade = signal<Grade>('B');
+  public frameword = signal(['Angular','Vue','Svelte','Qwik','React']);
+  public frameword2 = signal([]);
 
   public toggleContent() {
     this.showContent.update(value => !value);
