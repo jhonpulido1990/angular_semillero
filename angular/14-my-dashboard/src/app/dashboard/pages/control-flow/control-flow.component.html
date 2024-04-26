@@ -3,15 +3,28 @@
   <div class="bg-white rounded shadow p-10">
     <h2 class="text-2xl font-bold mb-5">if: {{ showContent() }}</h2>
 
-    <button (click)="toggleContent()"
-    class="p-2 bg-blue-500 rounded text-white">
+    <button (click)="toggleContent()" class="p-2 bg-blue-500 rounded text-white">
       Click me!
     </button>
 
     @if (showContent()) {
-      <p>Hola mundo cruel</p>
+    <p>Hola mundo cruel</p>
     } @else {
-      <p>***********</p>
+    <p>***********</p>
+    }
+  </div>
+  <!-- ngIf @switch -->
+  <div class="bg-white rounded shadow p-10">
+    @switch (grade()) {
+      @case ('A') {
+        <p>Arriba de 90</p>
+      }
+      @case ('B') {
+        <p>Arriba de 80</p>
+      }
+    @default {
+        <p>reprobado</p>
+      }
     }
   </div>
 </section>
