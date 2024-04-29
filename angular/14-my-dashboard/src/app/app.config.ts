@@ -5,6 +5,6 @@ import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(
-    routes, withViewTransitions(),
+    routes, withViewTransitions({ skipInitialTransition:true }),
   )]
 };
